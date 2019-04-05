@@ -41,12 +41,10 @@ class Song
   end
 
   def self.new_from_filename(filename)
-    elements = filename.split(" - ")
-    artist_name = elements[0]
-    song_name = elements[1].delete_suffix(".mp3")
     song = self.create
-    song.name = song_name
-    song.artist_name = artist_name
+    elements = filename.split(" - ")
+    song.artist_name = elements[0]
+    song.name = elements[1].delete_suffix(".mp3")
     song
   end
 
